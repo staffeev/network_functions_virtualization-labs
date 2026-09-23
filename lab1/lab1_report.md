@@ -1,12 +1,12 @@
-University: ITMO University
-Faculty: FICT
-Course: Network Functions Virtualization
-Year: 2026/2027
-Group: K3$21
-Author: Stafeev Ivan Alekseevich
-Lab: Lab1
-Date of create: 22.09.2026
-Date of finished: 23.00.2026
+University: ITMO University<br />
+Faculty: FICT<br />
+Course: Network Functions Virtualization<br />
+Year: 2026/2027<br />
+Group: K3421<br />
+Author: Stafeev Ivan Alekseevich<br />
+Lab: Lab1<br />
+Date of create: 22.09.2026<br />
+Date of finished: 23.00.2026<br />
 
 
 # Лабораторная работа №1. Установка GNS3 и базовая настройка
