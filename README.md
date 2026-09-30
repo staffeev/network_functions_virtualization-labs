@@ -7,3 +7,4 @@ Author: Stafeev Ivan Alekseevich
 
 Labs:
 1. [Установка GNS3 и базовая настройка](./lab1)
+2. [Настройка маршрутизатора SONiC в GNS3 и построение простой сети](./lab2)
