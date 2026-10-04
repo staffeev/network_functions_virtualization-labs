@@ -23,11 +23,7 @@ d["PORT"] = {
     if name in keep
 }
 
-d["INTERFACE"] = {
-    name: value
-    for name, value in d.get("INTERFACE", {}).items()
-    if name.split("|")[0] in keep
-}
+d.pop("INTERFACE", None)
 
 with open(path, "w") as f:
     json.dump(d, f, indent=4)
@@ -38,9 +34,5 @@ for name in d["PORT"]:
     print(" ", name)
 
 print("\nPORT count:", len(d["PORT"]))
-
-print("\nINTERFACE:")
-for name in d["INTERFACE"]:
-    print(" ", name)
-
-print("\nINTERFACE count:", len(d["INTERFACE"]))
+print("\nINTERFACE:", "removed")
+print("\nBGP_NEIGHBOR:", "removed")
