@@ -1,0 +1,31 @@
+---
+h1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.104.26.3
+h2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.104.26.2
+h3:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.104.26.4
+odl:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.104.26.100
+s1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.104.26.11
+s2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.104.26.12

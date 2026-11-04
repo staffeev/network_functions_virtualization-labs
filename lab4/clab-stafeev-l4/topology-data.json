@@ -1,0 +1,287 @@
+{
+  "name": "stafeev-l4",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab-stafeev-l4",
+        "bridge": "br-c620d19d9f83",
+        "ipv4-subnet": "10.104.26.0/24",
+        "ipv4-gw": "10.104.26.1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQD6KCm0kyTNmD+o6y1clW8YVIt/8tPhYJ99H71Umh6Le7AlE1d0GaJZNcLdEwYDbbPTzlfBxJj9FIEfxTB1XSW5N+WBmUKF/bog80wBphvs4zgOezA3IN/MpLK1SSZmC7s152m6QHBmimugGdkv+XfupTTX65fferi17+x9QO/2/wwYBc/E5r54VFR1dFiOuMxpeL4atAwYjDxWPDFN7rbEeeUHFcOIKP7phxUM8xiEsA1lnVlV+SpyXTRlWKD7XxJL5oDImsWrDhuxETHeoBHlBUQigc9fG/5TP7Nzh5c24vmoev54fjkZkfVA86iaC7IMQPVyZMC8TAG+JSUD1n9dWKV5M8ti4SO2OOeOL7GpL6U45nQiXoeh7gJc2AQfDIOyILdU3fM6fBDpBw+ZrTaXNdR+G4IVj9QYFNVov/5ckO8Iu4LeZGPneMLm6yVuUaUKk0MX3eu2pJNOj4Cn9r9Fh17paBcRkYoM1F4Rr1cniGvbUahnrpufKj4IHG6te3s=","ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBvLvTQ0qraLu8MBgoewlZIKzQ9j6z1+XOr8FQ/tIIMT"],
+  "nodes": {
+    "h1": {
+      "index": "0",
+      "shortname": "h1",
+      "longname": "clab-stafeev-l4-h1",
+      "fqdn": "h1.stafeev-l4.io",
+      "group": "",
+      "labdir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/h1",
+      "kind": "linux",
+      "image": "lab-tools:1.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.104.26.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-c620d19d9f83",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/h1",
+        "clab-node-longname": "clab-stafeev-l4-h1",
+        "clab-node-name": "h1",
+        "clab-node-type": "",
+        "clab-owner": "staffeev",
+        "clab-topo-file": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/lab4.clab.yml",
+        "containerlab": "stafeev-l4"
+      },
+      "port-bindings": [
+      ]
+    },
+    "h2": {
+      "index": "1",
+      "shortname": "h2",
+      "longname": "clab-stafeev-l4-h2",
+      "fqdn": "h2.stafeev-l4.io",
+      "group": "",
+      "labdir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/h2",
+      "kind": "linux",
+      "image": "lab-tools:1.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.104.26.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-c620d19d9f83",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/h2",
+        "clab-node-longname": "clab-stafeev-l4-h2",
+        "clab-node-name": "h2",
+        "clab-node-type": "",
+        "clab-owner": "staffeev",
+        "clab-topo-file": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/lab4.clab.yml",
+        "containerlab": "stafeev-l4"
+      },
+      "port-bindings": [
+      ]
+    },
+    "h3": {
+      "index": "2",
+      "shortname": "h3",
+      "longname": "clab-stafeev-l4-h3",
+      "fqdn": "h3.stafeev-l4.io",
+      "group": "",
+      "labdir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/h3",
+      "kind": "linux",
+      "image": "lab-tools:1.0",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.104.26.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-c620d19d9f83",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/h3",
+        "clab-node-longname": "clab-stafeev-l4-h3",
+        "clab-node-name": "h3",
+        "clab-node-type": "",
+        "clab-owner": "staffeev",
+        "clab-topo-file": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/lab4.clab.yml",
+        "containerlab": "stafeev-l4"
+      },
+      "port-bindings": [
+      ]
+    },
+    "odl": {
+      "index": "3",
+      "shortname": "odl",
+      "longname": "clab-stafeev-l4-odl",
+      "fqdn": "odl.stafeev-l4.io",
+      "group": "",
+      "labdir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/odl",
+      "kind": "linux",
+      "image": "odl:chromium",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.104.26.100",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-c620d19d9f83",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/odl",
+        "clab-node-longname": "clab-stafeev-l4-odl",
+        "clab-node-name": "odl",
+        "clab-node-type": "",
+        "clab-owner": "staffeev",
+        "clab-topo-file": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/lab4.clab.yml",
+        "containerlab": "stafeev-l4"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 6653,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 8101,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 8181,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 6633,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "s1": {
+      "index": "4",
+      "shortname": "s1",
+      "longname": "clab-stafeev-l4-s1",
+      "fqdn": "s1.stafeev-l4.io",
+      "group": "",
+      "labdir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/s1",
+      "kind": "linux",
+      "image": "ovs-lab:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.104.26.11",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-c620d19d9f83",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/s1",
+        "clab-node-longname": "clab-stafeev-l4-s1",
+        "clab-node-name": "s1",
+        "clab-node-type": "",
+        "clab-owner": "staffeev",
+        "clab-topo-file": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/lab4.clab.yml",
+        "containerlab": "stafeev-l4"
+      },
+      "port-bindings": [
+      ]
+    },
+    "s2": {
+      "index": "5",
+      "shortname": "s2",
+      "longname": "clab-stafeev-l4-s2",
+      "fqdn": "s2.stafeev-l4.io",
+      "group": "",
+      "labdir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/s2",
+      "kind": "linux",
+      "image": "ovs-lab:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "10.104.26.12",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-c620d19d9f83",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/clab-stafeev-l4/s2",
+        "clab-node-longname": "clab-stafeev-l4-s2",
+        "clab-node-name": "s2",
+        "clab-node-type": "",
+        "clab-owner": "staffeev",
+        "clab-topo-file": "/home/staffeev/Documents/network_functions_virtualization-labs/lab4/lab4.clab.yml",
+        "containerlab": "stafeev-l4"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "h1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:05:5c:2a",
+        "peer": "z"
+      },
+      "z": {
+        "node": "s1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:cc:b0:34",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "s1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:32:3e:79",
+        "peer": "z"
+      },
+      "z": {
+        "node": "s2",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:5b:d2:7b",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "h2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:bb:d8:cd",
+        "peer": "z"
+      },
+      "z": {
+        "node": "s2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:dd:6b:01",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "h3",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:13:46:66",
+        "peer": "z"
+      },
+      "z": {
+        "node": "s2",
+        "interface": "eth3",
+        "mac": "aa:c1:ab:b6:9e:1e",
+        "peer": "a"
+      }
+    }
+  ]
+}
