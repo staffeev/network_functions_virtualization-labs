@@ -30,13 +30,11 @@ for flow_file in "$FLOWS_DIR"/*.json; do
 
     flow_id=$(basename "$flow_file" .json)
 
-    # Skip reactive table-miss if it exists
     if [[ "$flow_id" == *"table-miss-reactive"* ]]; then
         echo "  [-] Skipping: $flow_id (reactive only)"
         continue
     fi
 
-    # Determine target node based on filename
     if [[ "$flow_id" == *"s1"* ]] || [[ "$flow_id" == *"acl"* ]]; then
         node=1
     elif [[ "$flow_id" == *"s2"* ]]; then
@@ -46,7 +44,6 @@ for flow_file in "$FLOWS_DIR"/*.json; do
         continue
     fi
 
-    # Override the 'id' field inside the JSON to match the filename
     temp_file=$(mktemp)
     jq --arg new_id "$flow_id" '
         if .["flow-node-inventory:flow"] then
@@ -65,10 +62,10 @@ for flow_file in "$FLOWS_DIR"/*.json; do
 
     if [[ "$http_code" == "201" ]] || [[ "$http_code" == "204" ]]; then
         echo "OK ($http_code)"
-        SUCCESS=$((SUCCESS + 1))  # ИСПРАВЛЕНО: безопасный инкремент
+        SUCCESS=$((SUCCESS + 1))
     else
         echo "FAILED ($http_code)"
-        FAILED=$((FAILED + 1))    # ИСПРАВЛЕНО: безопасный инкремент
+        FAILED=$((FAILED + 1))
     fi
 done
 
