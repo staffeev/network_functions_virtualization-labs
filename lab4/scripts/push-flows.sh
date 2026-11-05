@@ -1,0 +1,77 @@
+#!/bin/bash
+set -e
+
+STUDENT=${STUDENT:-stafeev}
+N=${N:-26}
+ODL="http://10.104.${N}.100:8181"
+FLOWS_DIR="$(dirname "$0")/../flows"
+
+echo "=================================================="
+echo "[ PUSHING ALL FLOWS ]"
+echo "=================================================="
+echo "Target ODL : $ODL"
+echo "Flows dir  : $FLOWS_DIR"
+echo "=================================================="
+
+if [ ! -d "$FLOWS_DIR" ]; then
+    echo "Error: Directory $FLOWS_DIR not found!"
+    exit 1
+fi
+
+echo "Found files in directory:"
+ls -1 "$FLOWS_DIR"/*.json 2>/dev/null || echo "  No .json files found!"
+echo "--------------------------------------------------"
+
+SUCCESS=0
+FAILED=0
+
+for flow_file in "$FLOWS_DIR"/*.json; do
+    [ -e "$flow_file" ] || continue
+
+    flow_id=$(basename "$flow_file" .json)
+
+    # Skip reactive table-miss if it exists
+    if [[ "$flow_id" == *"table-miss-reactive"* ]]; then
+        echo "  [-] Skipping: $flow_id (reactive only)"
+        continue
+    fi
+
+    # Determine target node based on filename
+    if [[ "$flow_id" == *"s1"* ]] || [[ "$flow_id" == *"acl"* ]]; then
+        node=1
+    elif [[ "$flow_id" == *"s2"* ]]; then
+        node=2
+    else
+        echo "  [-] Skipping: '$flow_id' (filename MUST contain 's1', 's2', or 'acl')"
+        continue
+    fi
+
+    # Override the 'id' field inside the JSON to match the filename
+    temp_file=$(mktemp)
+    jq --arg new_id "$flow_id" '
+        if .["flow-node-inventory:flow"] then
+            .["flow-node-inventory:flow"][0].id = $new_id
+        else
+            .
+        end
+    ' "$flow_file" > "$temp_file"
+
+    echo -n "  -> Applying $flow_id to node $node... "
+    
+    http_code=$(curl -s -u admin:admin -X PUT -H "Content-Type: application/json" -d @"$temp_file" -o /dev/null -w "%{http_code}" \
+        "$ODL/rests/data/opendaylight-inventory:nodes/node=openflow%3A${node}/flow-node-inventory:table=0/flow=$flow_id")
+    
+    rm -f "$temp_file"
+
+    if [[ "$http_code" == "201" ]] || [[ "$http_code" == "204" ]]; then
+        echo "OK ($http_code)"
+        SUCCESS=$((SUCCESS + 1))  # ИСПРАВЛЕНО: безопасный инкремент
+    else
+        echo "FAILED ($http_code)"
+        FAILED=$((FAILED + 1))    # ИСПРАВЛЕНО: безопасный инкремент
+    fi
+done
+
+echo "=================================================="
+echo "DONE! Successfully applied: $SUCCESS, Failed: $FAILED"
+echo "=================================================="
