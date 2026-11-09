@@ -1,0 +1,31 @@
+---
+isp:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.105.26.6
+pcb:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.105.26.4
+srv1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 10.105.26.3
+br:
+    username: admin
+    password: admin
+    platform: mikrotik_ros
+    hostname: 10.105.26.7
+hq:
+    username: admin
+    password: admin
+    platform: mikrotik_ros
+    hostname: 10.105.26.5
+dc1:
+    username: 
+    password: 
+    platform: sonic-vs
+    hostname: 10.105.26.2

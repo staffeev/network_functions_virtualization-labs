@@ -30,13 +30,11 @@ for flow_file in "$FLOWS_DIR"/*.json; do
 
     flow_id=$(basename "$flow_file" .json)
 
-    # Пропускаем реактивный table-miss, если он вдруг там есть
     if [[ "$flow_id" == *"table-miss-reactive"* ]]; then
         echo "  [-] Skipping: $flow_id (reactive only)"
         continue
     fi
 
-    # Определяем узел по имени файла
     if [[ "$flow_id" == *"s1"* ]] || [[ "$flow_id" == *"acl"* ]]; then
         node=1
     elif [[ "$flow_id" == *"s2"* ]]; then
@@ -51,7 +49,6 @@ for flow_file in "$FLOWS_DIR"/*.json; do
     http_code=$(curl -s -u admin:admin -X DELETE -o /dev/null -w "%{http_code}" \
         "$ODL/rests/data/opendaylight-inventory:nodes/node=openflow%3A${node}/flow-node-inventory:table=0/flow=$flow_id")
     
-    # ИСПРАВЛЕНО: безопасный инкремент, который не ломает set -e
     if [[ "$http_code" == "200" ]] || [[ "$http_code" == "204" ]]; then
         echo "OK ($http_code)"
         SUCCESS=$((SUCCESS + 1))
