@@ -8,11 +8,11 @@ all:
     linux:
       hosts:
         clab-stafeev-l5-isp:
-          ansible_host: 10.105.26.6
+          ansible_host: 10.105.26.5
         clab-stafeev-l5-pcb:
-          ansible_host: 10.105.26.4
-        clab-stafeev-l5-srv1:
           ansible_host: 10.105.26.3
+        clab-stafeev-l5-srv1:
+          ansible_host: 10.105.26.2
     mikrotik_ros:
       vars:
         # ansible_connection: set ansible_connection variable if required
@@ -20,10 +20,10 @@ all:
         ansible_password: admin
       hosts:
         clab-stafeev-l5-br:
-          ansible_host: 10.105.26.7
+          ansible_host: 10.105.26.6
         clab-stafeev-l5-hq:
-          ansible_host: 10.105.26.5
+          ansible_host: 10.105.26.7
     sonic-vs:
       hosts:
         clab-stafeev-l5-dc1:
-          ansible_host: 10.105.26.2
+          ansible_host: 10.105.26.4

@@ -1,8 +1,8 @@
-name: ${STUDENT:=stafeev}-l5
+name: stafeev-l5
 
 mgmt:
-  network: clab-${STUDENT:=stafeev}-l5
-  ipv4-subnet: 10.105.${N:=26}.0/24
+  network: clab-stafeev-l5
+  ipv4-subnet: 10.105.26.0/24
 
 topology:
   kinds:
@@ -14,22 +14,39 @@ topology:
       image: lab-tools:1.0
 
   nodes:
-    dc1: {kind: sonic-vs}
-    hq:  {kind: mikrotik_ros}
-    br:  {kind: mikrotik_ros}
+    dc1:
+      kind: sonic-vs
+      binds:
+        - configs/dc1.sh:/tmp/dc1.sh:ro
+        - configs/dc1-frr.conf:/tmp/dc1-frr.conf:ro
+      exec:
+        - bash /tmp/dc1.sh
+
+    hq:
+      kind: mikrotik_ros
+      startup-config: configs/hq.rsc
+      enforce-startup-config: true
+
+    br:
+      kind: mikrotik_ros
+      startup-config: configs/br.rsc
+      enforce-startup-config: true
+
     srv1:
       kind: linux
       exec:
-        - ip addr add 10.${N:=26}.100.10/24 dev eth1
-        - ip route replace default via 10.${N:=26}.100.1 dev eth1
+        - ip addr add 10.26.100.10/24 dev eth1
+        - ip route replace default via 10.26.100.1 dev eth1
+
     pcb:
       kind: linux
       exec:
-        - ip addr add 10.${N:=26}.200.10/24 dev eth1
-        - ip route replace default via 10.${N:=26}.200.1 dev eth1
+        - ip addr add 10.26.200.10/24 dev eth1
+        - ip route replace default via 10.26.200.1 dev eth1
+
     isp:
       kind: linux
-      cmd: python3 -u -m http.server 80 # «интернет-сервис», журнал запросов — в docker logs
+      cmd: python3 -u -m http.server 80
       exec:
         - ip addr add 100.64.1.1/30 dev eth1
         - ip addr add 100.64.2.1/30 dev eth2
@@ -37,8 +54,8 @@ topology:
         - sysctl -w net.ipv4.ip_forward=1
 
   links:
-    - endpoints: ["srv1:eth1", "dc1:eth1"] # dc1 Ethernet0
-    - endpoints: ["dc1:eth2", "hq:ether2"] # dc1 Ethernet4 <-> hq ether2
-    - endpoints: ["hq:ether3", "isp:eth1"] # WAN головного офиса
-    - endpoints: ["br:ether2", "isp:eth2"] # WAN филиала
-    - endpoints: ["br:ether3", "pcb:eth1"] # LAN филиала
+    - endpoints: ["srv1:eth1", "dc1:eth1"]
+    - endpoints: ["dc1:eth2", "hq:ether2"]
+    - endpoints: ["hq:ether3", "isp:eth1"]
+    - endpoints: ["br:ether2", "isp:eth2"]
+    - endpoints: ["br:ether3", "pcb:eth1"]

@@ -1,17 +1,11 @@
-# 2026-11-09 23:47:40 by RouterOS 7.23.8
-# system id = UMtbCoNSj3E
-#
 /interface ethernet set [ find default-name=ether1 ] disable-running-check=no
 /interface ethernet set [ find default-name=ether2 ] disable-running-check=no
 /interface ethernet set [ find default-name=ether3 ] disable-running-check=no
 /interface wireguard add listen-port=13026 mtu=1420 name=wg-br
 /routing bgp instance add as=65126 name=hq
-/interface wireguard peers add allowed-address=10.26.254.2/32,10.26.200.0/24 endpoint-address=100.64.2.2 endpoint-port=13026 interface=wg-br name=peer2 persistent-keepalive=25s public-key="GVkQa4uzNJxkZzggwcNhv9Iq7C4l5W1R4OoKgsQ19Tc="
-/ip address add address=172.31.255.30/30 interface=ether1 network=172.31.255.28
 /ip address add address=10.26.1.2/30 comment="to DC" interface=ether2 network=10.26.1.0
 /ip address add address=100.64.1.2/30 comment=WAN interface=ether3 network=100.64.1.0
 /ip address add address=10.26.254.1/30 interface=wg-br network=10.26.254.0
-/ip dhcp-client add interface=ether1 name=client1
 /ip firewall address-list add address=10.26.200.0/24 list=to-dc
 /ip firewall filter add action=accept chain=input comment="input: established" connection-state=established,related
 /ip firewall filter add action=drop chain=input connection-state=invalid
