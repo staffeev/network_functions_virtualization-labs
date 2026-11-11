@@ -10,3 +10,4 @@ Labs:
 2. [Настройка маршрутизатора SONiC в GNS3 и построение простой сети](./lab2)
 3. [Настройка VXLAN в GNS3 на базе двух маршрутизаторов SONiC](./lab3)
 4. [SDN: OpenFlow 1.3, Open vSwitch и контроллер OpenDaylight](./lab4)
+5. [Мультивендорная корпоративная сеть: MikroTik CHR как vCPE](./lab5)
