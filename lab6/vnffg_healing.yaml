@@ -11,11 +11,11 @@ endpoints:
 
 # Экземпляры VNF: порт входа (со стороны клиентов) и выхода (со стороны сервера)
 vnfs:
-  fw1:     {type: fw,     in: 3, out: 4}
+  fw1:     {type: fw,     in: 3, out: 4,  standby: fw2}
   fw2:     {type: fw,     in: 5, out: 6}     # появится после scale-out (этап 4)
   shaper1: {type: shaper, in: 7, out: 8}
 
 # Цепочки: от кого, к кому и через какие VNF
 chains:
-  - {name: "stafeev-c1", from: client1, to: server, path: [fw2, shaper1]}
+  - {name: "stafeev-c1", from: client1, to: server, path: [fw1, shaper1]}
   - {name: "stafeev-c2", from: client2, to: server, path: [fw2, shaper1]}

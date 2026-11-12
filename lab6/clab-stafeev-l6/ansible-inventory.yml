@@ -8,16 +8,16 @@ all:
     linux:
       hosts:
         clab-stafeev-l6-client1:
-          ansible_host: 10.106.26.5
+          ansible_host: 10.106.26.4
         clab-stafeev-l6-client2:
-          ansible_host: 10.106.26.6
+          ansible_host: 10.106.26.3
         clab-stafeev-l6-fw1:
-          ansible_host: 10.106.26.2
+          ansible_host: 10.106.26.5
         clab-stafeev-l6-odl:
           ansible_host: 10.106.26.100
         clab-stafeev-l6-server:
-          ansible_host: 10.106.26.4
+          ansible_host: 10.106.26.2
         clab-stafeev-l6-shaper1:
-          ansible_host: 10.106.26.3
+          ansible_host: 10.106.26.6
         clab-stafeev-l6-sw:
           ansible_host: 10.106.26.10
