@@ -11,3 +11,4 @@ Labs:
 3. [Настройка VXLAN в GNS3 на базе двух маршрутизаторов SONiC](./lab3)
 4. [SDN: OpenFlow 1.3, Open vSwitch и контроллер OpenDaylight](./lab4)
 5. [Мультивендорная корпоративная сеть: MikroTik CHR как vCPE](./lab5)
+6. [Цепочка сервисных функций (SFC) и жизненный цикл VNF под управлением SDN](./lab6)
