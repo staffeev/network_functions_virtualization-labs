@@ -221,4 +221,3 @@ Stateful межсетевой экран хранит таблицу состо�
 Проведён анализ производительности, выявивший влияние переходов между kernel и userspace. Рассмотрены технологии NFV Acceleration: DPDK, OVS-DPDK, SR-IOV, vhost-user и SmartNIC. Воспроизводимость экспериментов обеспечена скриптами `deploy.sh` и `switch_vnffg.sh`.
 
 В результате получены практические навыки построения SFC, программирования OpenFlow через RESTCONF, описания VNF в терминах ETSI NFV MANO, выполнения операций instantiate, configure, scale-out, heal и terminate, а также автоматизации восстановления сервиса. Цель работы выполнена.
-```
