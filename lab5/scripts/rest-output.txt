@@ -19,7 +19,7 @@
     "input.procid": "20",
     "instance": "hq",
     "keepalive-time": "1m",
-    "last-started": "2026-11-10 01:42:35",
+    "last-started": "2026-11-13 11:53:48",
     "local.address": "10.26.1.2",
     "local.afi": "ip",
     "local.as": "65126",
@@ -43,7 +43,7 @@
     "remote.gr-time": "120",
     "remote.id": "10.26.1.1",
     "remote.messages": "4",
-    "uptime": "14s280ms"
+    "uptime": "12s170ms"
   }
 ]
 
@@ -52,7 +52,7 @@
   ".id": "*2",
   "address": "192.0.2.26",
   "comment": "stafeev",
-  "creation-time": "2026-11-10 01:42:49",
+  "creation-time": "2026-11-13 11:54:01",
   "disabled": "false",
   "dynamic": "false",
   "list": "lab"
@@ -66,7 +66,7 @@ Created ID: *2
   ".id": "*2",
   "address": "192.0.2.26",
   "comment": "patched by REST",
-  "creation-time": "2026-11-10 01:42:49",
+  "creation-time": "2026-11-13 11:54:01",
   "disabled": "false",
   "dynamic": "false",
   "list": "lab"
